@@ -1,18 +1,25 @@
-import { useState } from 'react'
-import './App.css'
-import LoginPage from './assets/Components/LoginPage';
-import './assets/Components/LoginPage.css';  // Import the CSS file
+import React from "react";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import Home from "./pages/Home";
+import CarDetails from "./pages/CarDetails";
+import SellCar from "./pages/SellCar";
+import Login from "./pages/Login"; // Import Login Page
+import Header from "./components/Header";
+import Footer from "./components/Footer";
 
-function App() {
-  const [count, setCount] = useState(0)
-
+const App = () => {
   return (
-    <>
-      <div>
-         <LoginPage/>
-      </div>
-    </>
-  )
-}
+    <Router>
+      <Header />
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/car/:id" element={<CarDetails />} />
+        <Route path="/sell" element={<SellCar />} />
+        <Route path="/login" element={<Login />} /> {/* New Route for Login */}
+      </Routes>
+      <Footer />
+    </Router>
+  );
+};
 
-export default App
+export default App;
