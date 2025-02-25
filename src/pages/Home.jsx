@@ -1,21 +1,19 @@
 import React from "react";
-import { useState } from "react";
 import CarCard from "../components/CarCard";
 
-const Home = () => {
-  const [cars] = useState([
-    { id: 1, model: "Toyota Corolla", price: 12000, image: "car1.jpg" },
-    { id: 2, model: "Honda Civic", price: 15000, image: "car2.jpg" },
-  ]);
 
+const cars = [
+  { name: "Honda City", price: "7,50,000", year: "2020", image: "car1.jpg" },
+  { name: "Maruti Swift", price: "5,00,000", year: "2019", image: "car2.jpg" },
+  { name: "Toyota Fortuner", price: "35,00,000", year: "2021", image: "car3.jpg" },
+];
+
+const Home = () => {
   return (
-    <div>
-      <h1>Available Cars</h1>
-      <div className="car-list">
-        {cars.map((car) => (
-          <CarCard key={car.id} car={car} />
-        ))}
-      </div>
+    <div style={{ display: "flex", flexWrap: "wrap", justifyContent: "center" }}>
+      {cars.map((car, index) => (
+        <CarCard key={index} car={car} />
+      ))}
     </div>
   );
 };
