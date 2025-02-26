@@ -1,6 +1,5 @@
 import React from "react";
 import "./CarCard.css"; // Import the CSS file
-
 const CarCard = ({ car }) => {
   return (
     <div className="car-card">
