@@ -43,7 +43,7 @@
 }
 
 .search-bar button {
-  background: #f4a261;
+  background: #ff0000;
   border: none;
   padding: 8px 12px;
   cursor: pointer;
@@ -54,7 +54,7 @@
 }
 
 .search-bar button:hover {
-  background: #e76f51;
+  background: #e20e0e;
 }
 
 
@@ -80,7 +80,7 @@
 }
 
 .nav-links a:hover {
-  color: #f4a261;
+  color: #e20e0e;
 }
 
 
@@ -88,7 +88,7 @@
 /* Login Button */
 .login-button {
   padding: 10px 20px;
-  background: #f4a261;
+  background: #ff0000;
   color: white;
   text-decoration: none;
   border-radius: 20px;
@@ -96,5 +96,5 @@
 }
 
 .login-button:hover {
-  background: #e76f51;
+  background: #e20e0e;
 }

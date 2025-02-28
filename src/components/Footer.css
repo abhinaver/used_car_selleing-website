@@ -1,5 +1,5 @@
 .footer {
-  background: #0d0d0d;
+  background: #000000;
   color: white;
   padding: 40px 0;
   font-family: Arial, sans-serif;
@@ -22,7 +22,7 @@
 
 .footer-logo h2 {
   font-size: 1.8rem;
-  color: #ff9800;
+  color: #ff0000;
 }
 
 .footer-social a {
@@ -33,7 +33,7 @@
 }
 
 .footer-social a:hover {
-  color: #ff9800;
+  color: #ff0000;
 }
 
 /* Middle Section */
@@ -51,7 +51,7 @@
 .footer-links h4 {
   font-size: 1.2rem;
   margin-bottom: 15px;
-  color: #ff9800;
+  color: #ff0000;
 }
 
 .footer-links ul {
@@ -70,7 +70,7 @@
 }
 
 .footer-links a:hover {
-  color: #ff9800;
+  color: #ff0000;
 }
 
 /* Bottom Section */

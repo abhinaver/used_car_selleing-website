@@ -1,5 +1,4 @@
 import React from "react";
-import CarDetails from "../pages/CarDetails";
 import CarCard from "../components/CarCard";
 import civic from "../assets/cars/civic.jpg";
 import corolla from "../assets/cars/corolla.jpeg";
@@ -37,9 +36,9 @@ const Home = () => {
   return (
     <div style={{ display: "flex", flexWrap: "wrap", justifyContent: "center" }}>
       {cars.map((car, index) => (
-        <CarCard key={index} car={car} />
+        <CarCard key={car.id} car={car} />
       ))}
-      <CarDetails />
+      
     </div>
   );
 };

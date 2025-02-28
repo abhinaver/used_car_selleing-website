@@ -1,6 +1,13 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 import "./CarCard.css"; // Import the CSS file
 const CarCard = ({ car }) => {
+  const navigate = useNavigate();
+
+  const handleViewDetails = () => {
+    navigate(`/car/${car.id}`, { state: { car } });
+  };
+
   return (
     <div className="car-card">
       <img src={car.image} alt={car.name} className="car-image" />
@@ -8,7 +15,7 @@ const CarCard = ({ car }) => {
         <h2 className="car-name">{car.name}</h2>
         <p className="car-price">Price: ₹{car.price}</p>
         <p className="car-year">Year: {car.year}</p>
-        <button className="view-button">View Details</button>
+        <button className="view-button" onClick={handleViewDetails}>View Details</button>
       </div>
     </div>
   );
