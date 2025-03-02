@@ -10,6 +10,9 @@
     margin: 20px;
     height: 350px;
     flex-direction: column;
+    display: inline-block;
+    border: 1px solid #ddd;
+    padding: 10px;
   }
   
   .car-card:hover {
