@@ -12,10 +12,7 @@ import elantra from "../assets/cars/elantra.jpeg";
 import mazda from "../assets/cars/mazda.jpeg";
 import altima from "../assets/cars/altima.jpeg";
 import sportage from "../assets/cars/sportage.jpeg";
-
-
-
-
+import "./Home.css";
 
 const cars = [
   { id: 1, name: "Honda Civic", price: "15,000", image: civic },
@@ -25,20 +22,29 @@ const cars = [
   { id: 5, name: "BMW X5", price: "50,000", image: bmw },
   { id: 6, name: "Audi A6", price: "45,000", image: audi },
   { id: 7, name: "Mercedes C-Class", price: "40,000", image: mercedes },
-  { id: 8, name: "Chevrolet Camaro", price: "32,000", image: camaro},
+  { id: 8, name: "Chevrolet Camaro", price: "32,000", image: camaro },
   { id: 9, name: "Hyundai Elantra", price: "18,000", image: elantra },
   { id: 10, name: "Mazda CX-5", price: "27,000", image: mazda },
   { id: 11, name: "Nissan Altima", price: "22,000", image: altima },
   { id: 12, name: "Kia Sportage", price: "26,000", image: sportage },
 ];
 
-const Home = () => {
+const Home = ({ searchQuery }) => {  // Accept searchQuery as prop
+  const filteredCars = cars.filter(car =>
+    car.name.toLowerCase().includes(searchQuery.toLowerCase())  // Filter by search query
+  );
+
   return (
-    <div style={{ display: "flex", flexWrap: "wrap", justifyContent: "center" }}>
-      {cars.map((car, index) => (
-        <CarCard key={car.id} car={car} />
-      ))}
-      
+    <div className="home-container">
+      {filteredCars.length > 0 ? (
+        <div className="car-list">
+          {filteredCars.map((car) => (
+            <CarCard key={car.id} car={car} />
+          ))}
+        </div>
+      ) : (
+        <p className="no-results">No cars found for "{searchQuery}"</p>
+      )}
     </div>
   );
 };

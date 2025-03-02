@@ -1,22 +1,21 @@
-import React, { useState } from "react";
+import React from "react";
 import { Link, useNavigate } from "react-router-dom";
-import logo from "../assets/logo.png"; // Import the logo
-import "./Header.css"; // Import styles
+import logo from "../assets/logo.png";
+import "./Header.css";
 
-const Header = () => {
-  const [searchQuery, setSearchQuery] = useState("");
-  const navigate = useNavigate()
+const Header = ({ searchQuery, setSearchQuery }) => {  // Accept props
+  const navigate = useNavigate();
 
   const handleSearch = (e) => {
     e.preventDefault();
     console.log("Searching for:", searchQuery);
-    // Implement search functionality here
+    navigate("/");  // Redirect to home if not already there
   };
 
   return (
     <nav className="navbar">
       <div className="logo-container">
-        <img src={logo} alt="Used Car Marketplace Logo" className="logo-img" onClick={()=>{navigate("/")}}/>
+        <img src={logo} alt="Used Car Marketplace Logo" className="logo-img" onClick={() => navigate("/")} />
       </div>
 
       <form className="search-bar" onSubmit={handleSearch}>
@@ -24,7 +23,7 @@ const Header = () => {
           type="text"
           placeholder="Search for cars..."
           value={searchQuery}
-          onChange={(e) => setSearchQuery(e.target.value)}
+          onChange={(e) => setSearchQuery(e.target.value)}  // Update search state
         />
         <button type="submit">Search</button>
       </form>
@@ -33,7 +32,7 @@ const Header = () => {
         <li><Link to="/">Home</Link></li>
         <li><Link to="/sell">Sell a Car</Link></li>
       </ul>
-      
+
       <Link to="/login" className="login-button">Login</Link>
     </nav>
   );

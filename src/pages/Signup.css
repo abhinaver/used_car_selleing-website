@@ -23,7 +23,7 @@
   .input-group .icon {
     position: absolute;
     left: 10px;
-    color: #3498db;
+    color: #db3434;
   }
   
   .input-group input {
@@ -35,13 +35,13 @@
   }
   
   .input-group input:focus {
-    border-color: #3498db;
+    border-color: #000000;
     outline: none;
   }
   
   .signup-button {
     padding: 10px;
-    background-color: #3498db;
+    background-color: #ff0000;
     color: #fff;
     border: none;
     border-radius: 5px;
@@ -50,7 +50,7 @@
   }
   
   .signup-button:hover {
-    background-color: #2980b9;
+    background-color: #e20e0e;
   }
   
   .error {
