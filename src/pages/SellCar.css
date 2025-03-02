@@ -1,78 +1,95 @@
 .sell-car-container {
-  width: 600px;
-  margin: 40px auto;
+  max-width: 500px;
+  margin: 0 auto;
   padding: 20px;
-  background: #fff;
-  border-radius: 10px;
-  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
-  text-align: center;
-}
-
-h2 {
-  font-size: 24px;
-  color: #333;
-  margin-bottom: 15px;
+  background-color: #f9f9f9;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  margin-top: 20px;
+  margin-bottom: 20px;
 }
 
 .sell-car-form {
   display: flex;
   flex-direction: column;
   gap: 15px;
-  width: 100%;
-}
-
-input, textarea {
-  padding: 12px;
-  border: 1px solid #ddd;
-  border-radius: 5px;
-  font-size: 16px;
-  width: 100%;
-  box-sizing: border-box; /* Ensure consistent padding and width */
-}
-
-textarea {
-  height: 120px;  /* Increased height for better visibility */
-  resize:none; /* Allow vertical resize if needed */
 }
 
 .file-input {
   display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 10px;
-  font-size: 16px;
-  color: #333;
-}
-
-.file-input input {
-  padding: 5px;
-  border: 1px solid #ddd;
-  border-radius: 5px;
+  flex-direction: column;
+  align-items: start;
   cursor: pointer;
-  width: 100%;  /* Adjust width for better alignment */
+  flex: 1;
 }
 
 .preview-image {
-  width: 100%;
-  max-height: 250px;
+  width: 230px;
+  height: 230px;
   object-fit: cover;
   border-radius: 10px;
-  margin-top: 10px;
-  border: 1px solid #ddd;
+  cursor: pointer;
+  transition: transform 0.3s;
+}
+
+.preview-image:hover {
+  transform: scale(1.05);
+}
+
+.icon-button {
+  background-color: #ffffff;
+  border: none;
+  padding: 8px;
+  width: 230px;             /* Set a fixed width for a square shape */
+  height: 230px;            /* Set a fixed height for a square shape */
+  border-radius: 10px;      /* Slightly rounded corners for a modern look */
+  cursor: pointer;
+  transition: background-color 0.3s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border:1px solid black;
+}
+
+.icon-button:hover {
+  background-color: #2980b9;
+}
+
+.icon-button svg {
+  color: #000000;
 }
 
 .submit-button {
-  background-color: #ff0000;  /* Darker green for consistency */
-  color: white;
-  padding: 12px 20px;
+  background-color: #ff0000;
+  color: #fff;
   border: none;
+  padding: 10px;
   border-radius: 5px;
   cursor: pointer;
-  font-size: 18px;
-  transition: 0.3s;
-  width: 100%;  /* Fix width issue */
+  transition: background-color 0.3s;
+  height: 50px;
 }
 
 .submit-button:hover {
-  background-color: #e20e0e;  /* Darker green hover effect */
+  background-color: #27ae60;
+}
+.horizontal{
+  display: flex;
+}
+.vertical{
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  justify-content:initial;
+  padding: 0px 20px 0px 10px;
+  gap: 10px;
+}
+.vertical input{
+  flex: 1;
+  width: 100%;
+}
+textarea{
+  resize: none;
+  height: 100px;
+  font-size: 18px;
 }

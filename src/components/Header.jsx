@@ -1,10 +1,11 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import logo from "../assets/logo.png"; // Import the logo
 import "./Header.css"; // Import styles
 
 const Header = () => {
   const [searchQuery, setSearchQuery] = useState("");
+  const navigate = useNavigate()
 
   const handleSearch = (e) => {
     e.preventDefault();
@@ -15,7 +16,7 @@ const Header = () => {
   return (
     <nav className="navbar">
       <div className="logo-container">
-        <img src={logo} alt="Used Car Marketplace Logo" className="logo-img" />
+        <img src={logo} alt="Used Car Marketplace Logo" className="logo-img" onClick={()=>{navigate("/")}}/>
       </div>
 
       <form className="search-bar" onSubmit={handleSearch}>

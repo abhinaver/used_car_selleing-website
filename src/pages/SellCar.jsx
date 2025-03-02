@@ -1,5 +1,6 @@
 import React, { useState } from "react";
-import "./SellCar.css"; // Import the CSS file
+import { AiOutlinePlus } from "react-icons/ai"; // Import Plus icon from React Icons
+import "./SellCar.css"; // Import CSS file
 
 const SellCar = () => {
   const [carData, setCarData] = useState({
@@ -30,23 +31,84 @@ const SellCar = () => {
     <div className="sell-car-container">
       <h2>Sell Your Car</h2>
       <form onSubmit={handleSubmit} className="sell-car-form">
-        {/* Image Upload */}
-        <label className="file-input">
-          <input type="file" accept="image/*" onChange={handleImageChange} />
-        </label>
-        {carData.image && <img src={carData.image} alt="Car Preview" className="preview-image" />}
+        <div className="horizontal">
+      <label className="file-input">
+  {carData.image ? (
+    <img
+      src={carData.image}
+      alt="Car Preview"
+      className="preview-image"
+      onClick={() => document.getElementById("file-upload").click()}  // Click to change image
+    />
+  ) : (
+    <>
+      <input
+        className="upload-button"
+        type="file"
+        accept="image/*"
+        onChange={handleImageChange}
+        style={{ display: "none" }}  // Hide default input
+        id="file-upload"
+      />
+      <button
+        type="button"
+        className="icon-button"
+        onClick={() => document.getElementById("file-upload").click()}  // Trigger file input click
+      >
+        <AiOutlinePlus size={24} />
+      </button>
+    </>
+  )}
+</label>
 
+<div className="vertical">
         {/* Car Name */}
-        <input type="text" name="name" placeholder="Car Name" value={carData.name} onChange={handleChange} required />
+        <input
+          type="text"
+          name="name"
+          placeholder="Car Name"
+          value={carData.name}
+          onChange={handleChange}
+          required
+        />
 
         {/* Price */}
-        <input type="number" name="price" placeholder="Price (₹)" value={carData.price} onChange={handleChange} required />
+        <input
+          type="number"
+          name="price"
+          placeholder="Price (₹)"
+          value={carData.price}
+          onChange={handleChange}
+          required
+        />
 
         {/* Phone Number */}
-        <input type="tel" name="phone" placeholder="Phone Number" value={carData.phone} onChange={handleChange} required />
-
+        <input
+          type="tel"
+          name="phone"
+          placeholder="Phone Number"
+          value={carData.phone}
+          onChange={handleChange}
+          required
+        />
+         {/* Location */}
+         <input
+          type="text"
+          name="location"
+          placeholder="location"
+          value={carData.location}
+          onChange={handleChange}
+          required
+        />
+</div></div>
         {/* Description */}
-        <textarea name="description" placeholder="Description" value={carData.description} onChange={handleChange} required></textarea>
+        <textarea
+          name="description"
+          placeholder="Description"
+          value={carData.description}
+          onChange={handleChange}
+          required
+        ></textarea>
 
         {/* Submit Button */}
         <button type="submit" className="submit-button">List Car</button>

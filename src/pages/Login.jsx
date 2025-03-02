@@ -52,7 +52,7 @@ const Login = () => {
 
         {/* Sign-up Link */}
         <p className="signup-text">
-          Don't have an account? <a href="/signup">Sign up</a>
+          Don't have an account? <a onClick={()=>{navigate('/Signup')}}>Sign up</a>
         </p>
       </form>
     </div>
