@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { GoogleLogin } from "@react-oauth/google";  // Import GoogleLogin
+import { jwtDecode } from "jwt-decode";  // To decode the token
 import "./Login.css";
 import { FcGoogle } from "react-icons/fc";  // Google icon
 
@@ -15,10 +17,17 @@ const Login = () => {
     navigate("/");
   };
 
-  const handleGoogleLogin = () => {
-    // Handle Google login logic here
-    alert("Google login is not implemented yet!");
+  const handleGoogleLogin = (credentialResponse) => {
+    const decoded = jwt_decode(credentialResponse.credential);
+    console.log("Google Login Success:", decoded);
+    alert(`Welcome, ${decoded.name}!`);
+    navigate("/");
+  };;
+  const handleGoogleLoginError = () => {
+    console.log("Google Login Failed");
+    alert("Google login failed. Please try again!");
   };
+
 
   return (
     <div className="login-container">
@@ -44,11 +53,23 @@ const Login = () => {
           <span>or</span>
         </div>
 
-        {/* Google Login Button */}
-        <button type="button" className="google-button" onClick={handleGoogleLogin}>
-          <FcGoogle size={20} style={{ marginRight: "8px" }} />
-          Continue with Google
-        </button>
+ {/* Google Login Button */}
+ <GoogleLogin
+          onSuccess={handleGoogleLogin}
+          onError={handleGoogleLoginError}
+          render={(renderProps) => (
+            <button
+              type="button"
+              className="google-button"
+              onClick={renderProps.onClick}
+              disabled={renderProps.disabled}
+            >
+              <FcGoogle size={20} style={{ marginRight: "8px" }} />
+              Continue with Google
+            </button>
+          )}
+        />
+
 
         {/* Sign-up Link */}
         <p className="signup-text">

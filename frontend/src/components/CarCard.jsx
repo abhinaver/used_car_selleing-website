@@ -14,7 +14,7 @@ const CarCard = ({ car }) => {
       <div className="car-details">
         <h2 className="car-name">{car.name}</h2>
         <p className="car-price">Price: ₹{car.price}</p>
-        <p className="car-year">Year: {car.year}</p>
+        <p className="car-year">Year: {car.year ?? "Not specified"}</p>
         <button className="view-button" onClick={handleViewDetails}>View Details</button>
       </div>
     </div>

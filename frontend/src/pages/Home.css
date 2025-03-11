@@ -17,4 +17,16 @@
     font-size: 18px;
     margin-top: 20px;
   }
+  .most-demanded-section {
+    margin-bottom: 20px;
+    padding: 10px;
+    background-color: #000000;
+    border-radius: 10px;
+    transition: opacity 0.3s ease;
+  }
+  
+  .most-demanded-section h2 {
+    text-align: center;
+    color: #ff0000;
+  }
   

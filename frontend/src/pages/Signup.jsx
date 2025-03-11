@@ -1,24 +1,25 @@
 import React, { useState } from "react";
-import { AiOutlineUser, AiOutlineMail, AiOutlineLock } from "react-icons/ai";
+import { AiOutlineMail, AiOutlineLock } from "react-icons/ai";
+import { FcGoogle } from "react-icons/fc"; // Google Icon
+import { useNavigate } from "react-router-dom";
 import "./Signup.css";
 
 const Signup = () => {
+  const navigate = useNavigate();
   const [formData, setFormData] = useState({
-    username: "",
     email: "",
     password: "",
     confirmPassword: "",
   });
 
   const [errors, setErrors] = useState({});
-  
+
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
   const validate = () => {
     const newErrors = {};
-    if (!formData.username) newErrors.username = "Username is required.";
     if (!formData.email) newErrors.email = "Email is required.";
     if (!formData.password) newErrors.password = "Password is required.";
     if (formData.password !== formData.confirmPassword) {
@@ -33,33 +34,20 @@ const Signup = () => {
     if (validate()) {
       console.log("Form Submitted:", formData);
       alert("Signup Successful!");
-      setFormData({
-        username: "",
-        email: "",
-        password: "",
-        confirmPassword: "",
-      });
+      setFormData({ email: "", password: "", confirmPassword: "" });
       setErrors({});
     }
+  };
+
+  const handleGoogleSignup = () => {
+    alert("Google signup not implemented yet!");
+    // Here, you would integrate Google authentication
   };
 
   return (
     <div className="signup-container">
       <h2>Sign Up</h2>
       <form onSubmit={handleSubmit} className="signup-form">
-        {/* Username */}
-        <div className="input-group">
-          <AiOutlineUser className="icon" />
-          <input
-            type="text"
-            name="username"
-            placeholder="Username"
-            value={formData.username}
-            onChange={handleChange}
-          />
-        </div>
-        {errors.username && <p className="error">{errors.username}</p>}
-
         {/* Email */}
         <div className="input-group">
           <AiOutlineMail className="icon" />
@@ -105,6 +93,21 @@ const Signup = () => {
         <button type="submit" className="signup-button">
           Sign Up
         </button>
+
+        <div className="divider">
+          <span>or</span>
+        </div>
+
+        {/* Google Signup Button */}
+        <button type="button" className="google-button" onClick={handleGoogleSignup}>
+          <FcGoogle size={20} style={{ marginRight: "8px" }} />
+          Continue with Google
+        </button>
+
+        {/* Login Link */}
+        <p className="login-text">
+          Already have an account? <a onClick={() => navigate("/login")}>Log in</a>
+        </p>
       </form>
     </div>
   );

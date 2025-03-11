@@ -18,11 +18,19 @@ const SellCar = () => {
 
   const handleImageChange = (e) => {
     const file = e.target.files[0];
+    if (file.size > 2 * 1024 * 1024) {  // 2MB limit
+      alert("File size should be less than 2MB");
+      return;
+    }  
     setCarData((prevData) => ({ ...prevData, image: URL.createObjectURL(file) }));
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    if (!carData.name || !carData.price || !carData.phone || !carData.image) {
+      alert("Please fill all fields and upload an image.");
+      return;
+    }
     alert("Car listed successfully!");
     console.log(carData);
   };
